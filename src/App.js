@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Hangman from "./components/Hangman";
 
 function App() {
-  const [page, setPage] = useState("start"); // start → instructions → user info → game
+  const [page, setPage] = useState("start");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -22,44 +22,67 @@ function App() {
   return (
     <div
       style={{
-        width: "100%",
+        width: "100vw",
         height: "100vh",
-        background: "#0c0c13",
-        color: "#fff",
+        background: "#0e0818ff", // solid background
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        padding: "1rem",
-        boxSizing: "border-box",
+        color: "white",
+        textAlign: "center",
+        overflow: "hidden",
       }}
     >
+      <style>
+        {`input::placeholder { color: #ffffffa8; }`}
+      </style>
+
+      {/* START PAGE */}
       {page === "start" && (
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 1 }}
-          style={{ textAlign: "center" }}
+          style={{ width: "90%", maxWidth: "800px" }}
         >
-          <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
-            Welcome to SDC Games
-          </h1>
-          <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
-            Hangman Challenge
-          </h2>
+          <motion.h1
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            style={{
+              fontSize: "3vw",
+              fontWeight: "bold",
+              textShadow: "0 0 25px rgba(255,255,255,0.6)",
+            }}
+          >
+            Welcome to <span style={{ color: "#00fff0" }}>SDC Games</span>
+          </motion.h1>
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            style={{
+              fontSize: "2vw",
+              margin: "2vh 0",
+              color: "#fff",
+            }}
+          >
+            🎯 The Ultimate Hangman Challenge
+          </motion.h2>
           <motion.button
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px #158cee" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 25px #00fff0" }}
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
             style={{
               padding: "1rem 2rem",
-              fontSize: "1.2rem",
-              borderRadius: "10px",
               border: "none",
+              borderRadius: "15px",
+              background: "linear-gradient(45deg, #00fff0, #0075ff)",
+              color: "#000",
+              fontSize: "1.2rem",
+              fontWeight: "600",
               cursor: "pointer",
-              backgroundColor: "#158cee",
-              color: "#fff",
             }}
           >
             Start
@@ -67,62 +90,111 @@ function App() {
         </motion.div>
       )}
 
+      {/* INSTRUCTIONS PAGE */}
       {page === "instructions" && (
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          style={{ textAlign: "center", maxWidth: "600px" }}
+          style={{
+            width: "90%",
+            maxWidth: "800px",
+            lineHeight: "1.6",
+            fontSize: "1.2rem",
+          }}
         >
-          <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
-            How to Play
-          </h1>
-          <p style={{ fontSize: "1.2rem", marginBottom: "2rem" }}>
-            Guess the word by clicking letters. You have limited lives. Each
-            wrong guess brings the hangman closer to doom. Solve all questions
-            to win!
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{
+              fontSize: "2.5vw",
+              fontWeight: "bold",
+              color: "#00fff0",
+              textShadow: "0 0 20px #00fff0",
+              marginBottom: "1rem",
+              textAlign: "left",
+            }}
+          >
+            🧩 How to Play
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            style={{ textAlign: "left" }}
+          >
+            <ol style={{ listStyleType: "decimal", paddingLeft: "2rem" }}>
+              <li>Guess the word using letters (A–Z) or numbers (0–9).</li>
+              <li>You have <strong>6 lives ❤️</strong> to start.</li>
+              <li>Each wrong guess brings the hangman one step closer to doom ☠️.</li>
+              <li>Guess the maximum number of word before losing all lives to win.</li>
+              <li>Some questions may include charts — observe carefully 👀.</li>
+              <li>Your <strong>name, score, and time</strong> are recorded automatically.</li>
+            </ol>
+          </motion.div>
+
           <motion.button
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px #07ffc9" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 25px #00fff0" }}
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
             style={{
+              marginTop: "2rem",
               padding: "1rem 2rem",
-              fontSize: "1.2rem",
-              borderRadius: "10px",
+              borderRadius: "15px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: "#07ffc9",
+              fontWeight: "600",
+              fontSize: "1.2rem",
               color: "#000",
+              background: "linear-gradient(45deg, #00fff0, #0075ff)",
             }}
           >
-            Next
+            Continue →
           </motion.button>
         </motion.div>
       )}
 
+      {/* USER INFO PAGE */}
       {page === "userinfo" && (
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          style={{ textAlign: "center", maxWidth: "400px" }}
+          style={{
+            width: "90%",
+            maxWidth: "400px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          <h2>Enter Your Details</h2>
+          <h2
+            style={{
+              marginBottom: "2rem",
+              color: "#00fff0",
+              fontSize: "2vw",
+              textShadow: "0 0 15px #00fff0",
+            }}
+          >
+            🎮 Enter Your Details
+          </h2>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your Name"
             style={{
-              padding: "0.5rem",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "none",
               width: "100%",
+              padding: "0.8rem",
+              borderRadius: "10px",
+              border: "none",
               marginBottom: "1rem",
+              fontSize: "1rem",
+              outline: "none",
+              background: "rgba(255,255,255,0.1)",
+              color: "white",
             }}
           />
           <input
@@ -131,33 +203,38 @@ function App() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your Email"
             style={{
-              padding: "0.5rem",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "none",
               width: "100%",
-              marginBottom: "1rem",
+              padding: "0.8rem",
+              borderRadius: "10px",
+              border: "none",
+              marginBottom: "2rem",
+              fontSize: "1rem",
+              outline: "none",
+              background: "rgba(255,255,255,0.1)",
+              color: "white",
             }}
           />
           <motion.button
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px #07ffc9" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 25px #00fff0" }}
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
             style={{
               padding: "1rem 2rem",
-              fontSize: "1.2rem",
-              borderRadius: "10px",
               border: "none",
-              cursor: "pointer",
-              backgroundColor: "#07ffc9",
+              borderRadius: "12px",
+              background: "linear-gradient(45deg, #00fff0, #0075ff)",
               color: "#000",
+              fontWeight: "600",
+              cursor: "pointer",
+              fontSize: "1.2rem",
             }}
           >
-            Play Now
+            Play Now 🚀
           </motion.button>
         </motion.div>
       )}
 
+      {/* GAME PAGE */}
       {page === "game" && <Hangman userName={name} userEmail={email} />}
     </div>
   );
