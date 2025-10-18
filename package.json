@@ -2,10 +2,6 @@
   "name": "hangman-sdc",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "20.x",
-    "npm": "10.x"
-  },
   "dependencies": {
     "framer-motion": "^7.8.10",
     "react": "^18.2.0",
@@ -13,13 +9,13 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "react-use": "^17.6.0",
-    "zod": "^4.21.4",
+    "zod": "^4.20.0",
     "core-js": "^3.32.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
