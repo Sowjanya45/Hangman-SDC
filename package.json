@@ -1,0 +1,36 @@
+{
+  "name": "masai-week-14",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "framer-motion": "^4.1.17",
+    "node": "^25.0.0",
+    "react": "^16.13.1",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
+    "react-use": "^17.6.0",
+    "zod": "^4.1.12"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts --openssl-legacy-provider test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
