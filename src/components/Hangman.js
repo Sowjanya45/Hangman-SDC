@@ -1,3 +1,4 @@
+// src/components/Hangman.js
 import React, { Component } from "react";
 import Confetti from "react-confetti";
 
@@ -9,17 +10,17 @@ import step4 from "./images/4.jpg";
 import step5 from "./images/5.jpg";
 import step6 from "./images/6.jpg";
 
-// ===================== QUESTIONS =====================
+/* ===================== QUESTIONS ===================== */
+/* (Used the full QUESTIONS list you originally provided) */
 const QUESTIONS = [
   // LEVEL – EASY
-   
   { q: "A student scored 80 in mid-sem (40% weight) and 90 in end-sem (60% weight). What is the weighted average score?", e: "ODY=" },
   { q: "If sleeping hours over months decrease at a steady rate, which statistical concept can best describe this rate of change?", e: "c2xvcGU=" },
   { q: "When all values in a dataset are identical, the variance will be (in words)?", e: "emVyby==" },
   { q: "A die is rolled in the “Dice Challenge.” The Probability of rolling an even number or a number > 4 is x/y. Find (x+y).", e: "NQ==" },
   { q: "The marks of 7 students are: 45, 56, 51, 61, 72, 59. If one more student with 48 marks joins, what will be the new median?", e: "NTY=" },
   { q: "The NITW’s TZ squad has a perfect balance of brains and energy — with a male-to-female ratio of 3:2. If there are 30 female members, can you decode how many total students proudly wear the NITW merch?", e: "NzU=" },
-  { q: "The measure that tells how far data points are from the average is called ___", e: "ZGV2aWF0aW9u" },
+  { q: "The measure that tells how far data points are from the average is called", e: "ZGV2aWF0aW9u" },
   { q: "The number of participants in a hackathon across 5 departments: CSE – 80, ECE – 70, MECH – 60, CIVIL – 40, EEE – 50. If the total turnout increased by 25% next year, what would be the new total?", e: "Mzc1" },
   { q: "A student’s score in a Machine Learning aptitude test is at the 85th percentile. If 200 students took the test, how many scored below them?", e: "MTcw" },
   { q: "In NITW’s attendance dataset, the workshop with the maximum frequency of participation corresponds to which measure of central tendency?", e: "bW9kZQ==" },
@@ -29,11 +30,11 @@ const QUESTIONS = [
   { q: "When you calculate the average deviation of each data point from the mean, what are you interested in?", e: "VmFyaWFuY2U=" },
   { q: "A student divides weekly study time into PIE CHART . What is the “mode” of all preferences?", e: "Q29yZQ==", chartLink: "https://drive.google.com/file/d/13fQM8Kj5ouA5QJ7AOeHcroZcXoqxXUFa/view?usp=sharing" },
   { q: "If total study time = 40 hrs/week, the time spent on Core is greater than Coding by ‘x’ hrs in a week. What is the xth day in a week?", e: "VGh1cnNkYXk=" ,chartLink: "https://drive.google.com/file/d/13fQM8Kj5ouA5QJ7AOeHcroZcXoqxXUFa/view?usp=sharing"},
-  { q: "If 10% of the attendees in each event were from outside our college, find the total number of attendees from our college who participated across all events.", e: "MjM0", chartLink: "https://drive.google.com/file/d/1VzMIQrNQfjYvOa6CtCOnx1gZRmxIPRgj/view?usp=sharing" },
+  { q: "If 10% of the attendees in each event were from outside our college, find the total number of attendees from our college who participated across all events.", e: "MjM0", chartLink: "https://drive.google.com/file/d/1VzMIQrNQfjYvOa6CtCOnx1gZRmxIPRgj/view?usp=sharing" },
   { q: "What is the maximum drop in the turnout of participants for 2 consecutive events? BAR CHART (1)", e: "MzA=", chartLink: "https://drive.google.com/file/d/1VzMIQrNQfjYvOa6CtCOnx1gZRmxIPRgj/view?usp=sharing" },
   { q: "Our team analysed coding times and found a few students took extremely longer than others, pulling the average upward. Which measure of central tendency is most affected by such extreme values?", e: "TWVhbg==" },
   { q: "In a course exam, internal marks carry 40% weight, and the end-semester exam carries 60%. A student scored 72 in internals and needs an overall score of at least 75 to get an A grade. What is the minimum score they must get in the end-semester exam?", e: "NzY=" },
-  { q: "A bar chart shows NITW social media followers over 4 months: June – 500, July – 625, Aug – 875, Sept– 1050, Oct - 1218. What’s the average monthly percentage increase?  consider only the integer part", e: "MjU=", chartLink: "https://drive.google.com/file/d/1Jau36gr7tCJILH1uBnvUOs3rlEb88jF0/view?usp=sharing" },
+  { q: "A bar chart shows NITW social media followers over 4 months: June – 500, July – 625, Aug – 875, Sept– 1050, Oct - 1218. What’s the average monthly percentage increase?  consider only the integer part", e: "MjU=", chartLink: "https://drive.google.com/file/d/1Jau36gr7tCJILH1uBnvUOs3rlEb88jF0/view?usp=sharing" },
   { q: "By which month is it estimated that the number of followers cross 1900 if the followers grow every month with a constant rate ‘x’, the integer part of the answer to the previous question.", e: "RGVjZW1iZXI=", chartLink: "https://drive.google.com/file/d/1Jau36gr7tCJILH1uBnvUOs3rlEb88jF0/view?usp=sharing" },
   { q: "Probability of a student winning “The Data Chase” = 0.6, “Frontend Frenzy” = 0.7, both = 0.4. Probability of winning at least one is x/y. Find x+y.", e: "OQ==" },
   { q: "In the dataset of quiz marks, 50% of students scored below a certain value and 50% above it. What is that value called in measures of central tendency?", e: "bWVkaWFu" },
@@ -45,13 +46,14 @@ const QUESTIONS = [
   { q: "A line graph of SDC recruitment shows a consistent rise over each semester. What is the term for the general direction of the data?", e: "VHJlbmQ=" },
   { q: "A multiple-choice quiz has 2 questions, each with 4 options and only one correct. If a student guesses all, the probability of getting exactly 1 correct is x/y. What day is it on (y-x)th of this month?", e: "U3VuZGF5" },
   { q: "A trial where there are exactly two outcomes (like success or failure) is called a?", e: "QmVybm91bGxp" },
-  { q: "The line graph below shows the number of hours spent by a person for his project over seven  consecutive days. What is the day with hours spent closest to the average of total hours spent in the week?", e: "c2F0dXJkYXk=", chartLink: "https://drive.google.com/file/d/1eNpnalUwg8dyh2UPvfip3GwD0v7rlBKG/view?usp=sharing" },
+  { q: "The line graph below shows the number of hours spent by a person for his project over seven  consecutive days. What is the day with hours spent closest to the average of total hours spent in the week?", e: "c2F0dXJkYXk=", chartLink: "https://drive.google.com/file/d/1eNpnalUwg8dyh2UPvfip3GwD0v7rlBKG/view?usp=sharing" },
   { q: "The club had 50 members last semester and 80 this semester. If it continues to grow at the same compound rate, how many members are expected next semester?", e: "MTI4" },
   { q: "The pie chart of SDC event attendance shows Hackathon = 108° and Workshop = 90°. The club reports 162 students attended Hackathon. How many students attended Workshops?", e: "MTM1" },
   { q: "The multi-line graph below depicts the F1 scores of 3 different models on 5 datasets. It is the only dataset where the average F1-score of the three models is below the combined average F1-score of models, Pulse and Core across all five datasets.", e: "c2VudGluZWw=", chartLink: "https://drive.google.com/file/d/12BIK3z7FcSZHdP11wJHrCwrfY1TxvkBx/view?usp=sharing" },
   { q: "Which model shows less than a 30% difference between its best and worst scores across all 5 datasets?", e: "Zmx1eA==", chartLink: "https://drive.google.com/file/d/12BIK3z7FcSZHdP11wJHrCwrfY1TxvkBx/view?usp=sharing" },
 ];
-// ===================== UTILITY =====================
+
+/* ===================== Utility ===================== */
 function decodeAnswer(encoded) {
   try {
     return atob(encoded).toLowerCase();
@@ -60,16 +62,16 @@ function decodeAnswer(encoded) {
   }
 }
 
-// ===================== COMPONENT =====================
+/* ===================== Component ===================== */
 class Hangman extends Component {
   static defaultProps = {
     maxWrong: 6,
+    maxSkips: 5,
     images: [step0, step1, step2, step3, step4, step5, step6],
   };
 
   constructor(props) {
     super(props);
-
     const userEmail = this.props.userEmail || "guest";
     const finishedEmails = JSON.parse(localStorage.getItem("finishedEmails")) || [];
     const saved = JSON.parse(localStorage.getItem(`save_${userEmail}`));
@@ -79,13 +81,15 @@ class Hangman extends Component {
       guessed: new Set(),
       currentQuestion: 0,
       correctCount: 0,
+      skipsUsed: 0,
       startTime: saved?.startTime || Date.now(),
       timeElapsed: saved?.timeElapsed || 0,
       timer: null,
       isGameOver: false,
       isGameWon: false,
       finishedEmails,
-      alreadyPlayed: false, // ✅ added
+      alreadyPlayed: false,
+      fade: false, // for skip animation
     };
 
     if (saved && !finishedEmails.includes(userEmail)) {
@@ -101,13 +105,13 @@ class Hangman extends Component {
     const { finishedEmails } = this.state;
     const userEmail = this.props.userEmail || "guest";
 
-    // If finished earlier, lock them out instantly
+    // lock out if already finished
     if (finishedEmails.includes(userEmail)) {
       this.setState({ isGameOver: true, isGameWon: false, alreadyPlayed: true });
       return;
     }
 
-    // Timer start
+    // start timer
     const timer = setInterval(() => {
       this.setState({
         timeElapsed: Math.floor((Date.now() - this.state.startTime) / 1000),
@@ -123,15 +127,14 @@ class Hangman extends Component {
     document.removeEventListener("keydown", this.handleKeydown);
   }
 
- handleKeydown = (event) => {
-  const key = event.key?.toLowerCase();
-
-  // Only allow a-z and 0-9
-  if (/^[a-z0-9]$/.test(key)) {
-    this.handleGuess(key);
-  }
-  // everything else is ignored automatically
-};
+  // only accept a-z and 0-9
+  handleKeydown = (event) => {
+    const key = event.key?.toLowerCase();
+    if (/^[a-z0-9]$/.test(key)) {
+      this.handleGuess(key);
+    }
+    // else ignored
+  };
 
   guessedWord() {
     const answer = decodeAnswer(QUESTIONS[this.state.currentQuestion].e);
@@ -156,6 +159,7 @@ class Hangman extends Component {
       guessed: Array.from(this.state.guessed),
       currentQuestion: this.state.currentQuestion,
       correctCount: this.state.correctCount,
+      skipsUsed: this.state.skipsUsed,
       startTime: this.state.startTime,
       timeElapsed: this.state.timeElapsed,
     };
@@ -194,7 +198,7 @@ class Hangman extends Component {
     const wrongGuess = !answer.includes(letter);
     const newMistake = Math.min(mistake + (wrongGuess ? 1 : 0), this.props.maxWrong);
 
-    // Game lost
+    // if lose
     if (newMistake >= this.props.maxWrong) {
       clearInterval(this.state.timer);
       this.setState(
@@ -207,6 +211,7 @@ class Hangman extends Component {
       return;
     }
 
+    // check if all guessed
     const guessedAll = answer.split("").every((ch) => newGuessed.has(ch));
     if (guessedAll) {
       if (currentQuestion === QUESTIONS.length - 1) {
@@ -222,7 +227,8 @@ class Hangman extends Component {
         this.setState({ guessed: newGuessed, correctCount: correctCount + 1 }, () => {
           this.saveState();
         });
-        setTimeout(() => this.nextQuestion(), 500);
+        // small delay then next question
+        setTimeout(() => this.nextQuestion(), 600);
       }
       return;
     }
@@ -232,11 +238,53 @@ class Hangman extends Component {
     });
   };
 
+  // next question (used for normal progression)
   nextQuestion = () => {
-    this.setState({
-      currentQuestion: this.state.currentQuestion + 1,
-      guessed: new Set(),
-    });
+    const { currentQuestion } = this.state;
+    if (currentQuestion < QUESTIONS.length - 1) {
+      this.setState({
+        currentQuestion: currentQuestion + 1,
+        guessed: new Set(),
+      }, this.saveState);
+    } else {
+      // finished all
+      clearInterval(this.state.timer);
+      this.setState({ isGameWon: true, isGameOver: true }, () => {
+        this.submitToSpreadsheet();
+        this.saveState();
+      });
+    }
+  };
+
+  // Skip logic with fade animation
+  handleSkip = () => {
+    const { skipsUsed, currentQuestion, isGameOver, isGameWon } = this.state;
+    if (isGameOver || isGameWon) return;
+    if (skipsUsed >= this.props.maxSkips) return;
+
+    // trigger fade out
+    this.setState({ fade: true });
+
+    setTimeout(() => {
+      if (currentQuestion < QUESTIONS.length - 1) {
+        this.setState(
+          (prev) => ({
+            skipsUsed: prev.skipsUsed + 1,
+            currentQuestion: prev.currentQuestion + 1,
+            guessed: new Set(),
+            fade: false,
+          }),
+          this.saveState
+        );
+      } else {
+        // last question skipped -> mark as won
+        clearInterval(this.state.timer);
+        this.setState({ isGameWon: true, isGameOver: true, fade: false }, () => {
+          this.submitToSpreadsheet();
+          this.saveState();
+        });
+      }
+    }, 450); // matches CSS fade-out duration
   };
 
   generateButtons() {
@@ -249,7 +297,7 @@ class Hangman extends Component {
         value={l}
         onClick={() => this.handleGuess(l)}
         disabled={guessed.has(l) || isGameOver || isGameWon}
-        className={guessed.has(l) ? (answer.includes(l) ? "correct" : "wrong") : ""}
+        className={`letter-btn ${guessed.has(l) ? (answer.includes(l) ? "correct" : "wrong") : ""}`}
       >
         {l.toUpperCase()}
       </button>
@@ -266,92 +314,104 @@ class Hangman extends Component {
         value={n}
         onClick={() => this.handleGuess(n)}
         disabled={guessed.has(n) || isGameOver || isGameWon}
-        className={guessed.has(n) ? (answer.includes(n) ? "correct" : "wrong") : ""}
+        className={`num-btn ${guessed.has(n) ? (answer.includes(n) ? "correct" : "wrong") : ""}`}
       >
         {n}
       </button>
     ));
   }
 
-  renderPopup() {
-    const { isGameOver, isGameWon, timeElapsed, correctCount } = this.state;
-    if (!isGameOver && !isGameWon) return null;
-
-    return (
-      <div className="result-overlay">
-        <div className="result-card">
-          <h2>{isGameWon ? "🎉 You Won!" : "💔 Game Over!"}</h2>
-          <p>{isGameWon ? "Congratulations! You solved all questions." : "Better luck next time!"}</p>
-          <div className="info-box" style={{ justifyContent: "center", margin: "1rem 0" }}>
-            <span>Time: {timeElapsed}s</span>
-            <span>Score: {correctCount}/{QUESTIONS.length}</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
- render() {
-  const { mistake, currentQuestion, timeElapsed, correctCount, isGameOver, isGameWon, alreadyPlayed } = this.state;
-  const { maxWrong, images } = this.props;
-
-  if (alreadyPlayed) {
-    return (
-      <div className="Hangman-wrapper fade-in">
-        <h1 className="Hangman-heading">GAME OVER</h1>
-        <div className="already-played">
-          <h2>⚠️ You’ve already played!</h2>
-          <p>Thanks for participating. You cannot play again.</p>
-        </div>
-      </div>
-    );
-  }
-
-  const question = QUESTIONS[currentQuestion].q;
-  const answer = decodeAnswer(QUESTIONS[currentQuestion].e);
-  const chartLink = QUESTIONS[currentQuestion].chartLink;
+renderPopup() {
+  const { isGameOver, timeElapsed, correctCount } = this.state;
+  if (!isGameOver) return null;
 
   return (
-    <div className="Hangman-wrapper">
-      {isGameWon && (
-        <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
-      )}
-      <h1 className="Hangman-heading">DO OR DIE</h1>
-      <div className="Hangman">
-        <div className="Hangman-left">
-          <img src={images[Math.min(mistake, maxWrong)]} alt={`${mistake}/${maxWrong} wrong guesses`} />
-          <div className="question-text">
-            <p>{question}</p>
-            {chartLink && (
-              <a
-                href={chartLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="chart-link"
-              >
-                Click to view chart 📊
-              </a>
-            )}
-          </div>
-          <div className="info-box">
-            <span>Lives: {Math.max(0, maxWrong - mistake)}</span>
-            <span>Time: {timeElapsed}s</span>
-            <span>Score: {correctCount}/{QUESTIONS.length}</span>
-          </div>
-        </div>
-
-        <div className="Hangman-right">
-          <p className="Hangman-word">{!isGameOver ? this.guessedWord() : answer}</p>
-          <div className="Hangman-btns">{this.generateButtons()}</div>
-          <div className="Hangman-btns numpad">{this.generateNumpad()}</div>
+    <div className="result-overlay">
+      <div className="result-card">
+        <h2> Game Over!</h2>
+        <p>Thanks for playing! Here’s how you did:</p>
+        <div className="info-box" style={{ justifyContent: "center", marginTop: "1rem" }}>
+          <span>Time: {timeElapsed}s</span>
+          <span>Score: {correctCount}/{QUESTIONS.length}</span>
         </div>
       </div>
-
-      {this.renderPopup()}
     </div>
   );
 }
 
+
+
+  render() {
+    const { mistake, currentQuestion, timeElapsed, correctCount, isGameOver, isGameWon, skipsUsed, alreadyPlayed, fade } = this.state;
+    const { maxWrong, images, maxSkips } = this.props;
+
+    if (alreadyPlayed) {
+      return (
+        <div className="Hangman-wrapper fade-in">
+          <h1 className="Hangman-heading">GAME OVER</h1>
+          <div className="already-played">
+            <h2>⚠️ You’ve already played!</h2>
+            <p>Thanks for participating. You cannot play again.</p>
+          </div>
+        </div>
+      );
+    }
+
+    const question = QUESTIONS[currentQuestion].q;
+    const answer = decodeAnswer(QUESTIONS[currentQuestion].e);
+    const chartLink = QUESTIONS[currentQuestion].chartLink;
+
+    return (
+      <div className="Hangman-wrapper">
+        {isGameWon && (
+          <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
+        )}
+
+        <h1 className="Hangman-heading"  >DO OR DIE</h1>
+
+        <div className="Hangman">
+          <div className={`Hangman-left ${fade ? "fade-out" : "fade-in"}`}>
+            <img src={images[Math.min(mistake, maxWrong)]} alt={`${mistake}/${maxWrong} wrong guesses`} />
+            <div className="question-text">
+              <p>{question}</p>
+              {chartLink && (
+                <a href={chartLink} target="_blank" rel="noopener noreferrer" className="chart-link">
+                  Click to view chart 📊
+                </a>
+              )}
+            </div>
+
+            <div className="info-box">
+              <span>Lives: {Math.max(0, maxWrong - mistake)}</span>
+              <span>Time: {timeElapsed}s</span>
+              <span>Score: {correctCount}/{QUESTIONS.length}</span>
+              <span>Skips left: {maxSkips - skipsUsed}</span>
+            </div>
+
+          {skipsUsed < maxSkips && (
+  <button
+    className="skip-btn"
+    onClick={this.handleSkip}
+  >
+    ⏭ Skip
+  </button>
+)}
+
+          </div>
+
+          <div className="Hangman-right">
+            <p className="Hangman-word">{!isGameOver ? this.guessedWord() : answer}</p>
+
+            <div className="Hangman-btns">{this.generateButtons()}</div>
+
+            <div className="Hangman-btns numpad">{this.generateNumpad()}</div>
+          </div>
+        </div>
+
+        {this.renderPopup()}
+      </div>
+    );
+  }
 }
 
 export default Hangman;

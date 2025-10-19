@@ -24,7 +24,7 @@ function App() {
       style={{
         width: "100vw",
         height: "100vh",
-        background: "#0e0818ff", // solid background
+        background: "#0e0818",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -32,6 +32,7 @@ function App() {
         color: "white",
         textAlign: "center",
         overflow: "hidden",
+        padding: "1rem",
       }}
     >
       <style>
@@ -51,7 +52,7 @@ function App() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
             style={{
-              fontSize: "3vw",
+              fontSize: "clamp(4rem, 5vw, 4rem)",
               fontWeight: "bold",
               textShadow: "0 0 25px rgba(255,255,255,0.6)",
             }}
@@ -63,7 +64,7 @@ function App() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{
-              fontSize: "2vw",
+              fontSize: "clamp(1.8rem, 2.5vw, 2rem)",
               margin: "2vh 0",
               color: "#fff",
             }}
@@ -75,12 +76,12 @@ function App() {
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
             style={{
-              padding: "1rem 2rem",
+              padding: "clamp(1rem, 1.3vw, 1.3rem) clamp(2rem, 3vw, 3rem)",
               border: "none",
               borderRadius: "15px",
               background: "linear-gradient(45deg, #00fff0, #0075ff)",
               color: "#000",
-              fontSize: "1.2rem",
+              fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
               fontWeight: "600",
               cursor: "pointer",
             }}
@@ -100,7 +101,7 @@ function App() {
             width: "90%",
             maxWidth: "800px",
             lineHeight: "1.6",
-            fontSize: "1.2rem",
+            fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
           }}
         >
           <motion.h1
@@ -108,7 +109,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             style={{
-              fontSize: "2.5vw",
+              fontSize: "clamp(1.8rem, 2.5vw, 2.5rem)",
               fontWeight: "bold",
               color: "#00fff0",
               textShadow: "0 0 20px #00fff0",
@@ -129,7 +130,8 @@ function App() {
               <li>Guess the word using letters (A–Z) or numbers (0–9).</li>
               <li>You have <strong>6 lives ❤️</strong> to start.</li>
               <li>Each wrong guess brings the hangman one step closer to doom ☠️.</li>
-              <li>Guess the maximum number of word before losing all lives to win.</li>
+              <li>You can skip for <strong>5 times </strong>at max</li>
+              <li>Guess the maximum number of words before losing all lives to win.</li>
               <li>Some questions may include charts — observe carefully 👀.</li>
               <li>Your <strong>name, score, and time</strong> are recorded automatically.</li>
             </ol>
@@ -139,17 +141,7 @@ function App() {
             whileHover={{ scale: 1.1, boxShadow: "0 0 25px #00fff0" }}
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
-            style={{
-              marginTop: "2rem",
-              padding: "1rem 2rem",
-              borderRadius: "15px",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "600",
-              fontSize: "1.2rem",
-              color: "#000",
-              background: "linear-gradient(45deg, #00fff0, #0075ff)",
-            }}
+            className="skip-btn"
           >
             Continue →
           </motion.button>
@@ -174,7 +166,7 @@ function App() {
             style={{
               marginBottom: "2rem",
               color: "#00fff0",
-              fontSize: "2vw",
+              fontSize: "clamp(1.5rem, 2vw, 2rem)",
               textShadow: "0 0 15px #00fff0",
             }}
           >
@@ -187,11 +179,11 @@ function App() {
             placeholder="Your Name"
             style={{
               width: "100%",
-              padding: "0.8rem",
+              padding: "clamp(0.6rem, 1vw, 0.8rem)",
               borderRadius: "10px",
               border: "none",
               marginBottom: "1rem",
-              fontSize: "1rem",
+              fontSize: "clamp(0.9rem, 1vw, 1rem)",
               outline: "none",
               background: "rgba(255,255,255,0.1)",
               color: "white",
@@ -204,11 +196,11 @@ function App() {
             placeholder="Your Email"
             style={{
               width: "100%",
-              padding: "0.8rem",
+              padding: "clamp(0.6rem, 1vw, 0.8rem)",
               borderRadius: "10px",
               border: "none",
               marginBottom: "2rem",
-              fontSize: "1rem",
+              fontSize: "clamp(0.9rem, 1vw, 1rem)",
               outline: "none",
               background: "rgba(255,255,255,0.1)",
               color: "white",
@@ -218,16 +210,7 @@ function App() {
             whileHover={{ scale: 1.1, boxShadow: "0 0 25px #00fff0" }}
             whileTap={{ scale: 0.95 }}
             onClick={nextPage}
-            style={{
-              padding: "1rem 2rem",
-              border: "none",
-              borderRadius: "12px",
-              background: "linear-gradient(45deg, #00fff0, #0075ff)",
-              color: "#000",
-              fontWeight: "600",
-              cursor: "pointer",
-              fontSize: "1.2rem",
-            }}
+            className="skip-btn"
           >
             Play Now 🚀
           </motion.button>
