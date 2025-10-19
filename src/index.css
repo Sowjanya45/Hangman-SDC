@@ -14,7 +14,7 @@ html, body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
   padding: 0;
 }
 
@@ -307,7 +307,7 @@ html, body {
   body {
     height: 100dvh;
     padding: 0.5rem;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .Hangman-wrapper {
