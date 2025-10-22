@@ -349,3 +349,17 @@ html, body {
     min-width: 60px;
   }
 }
+/* -------------------- FIX: Enable Scrolling on Mobile -------------------- */
+@media (max-width: 768px) {
+  html, body {
+    height: auto !important;
+    min-height: 100dvh;
+    overflow-y: auto !important;
+  }
+
+  .Hangman-wrapper {
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+}
+
