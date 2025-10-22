@@ -336,20 +336,9 @@
     min-width: 60px;
   }
 }
-/* -------------------- FIX: Enable Scrolling on Mobile -------------------- */
-@media (max-width: 768px) {
-  html, body {
-    height: auto !important;
-    min-height: 100dvh;
-   overflow: scroll
-  }
 
-  .Hangman-wrapper {
-    height: auto !important;
-  overflow: scroll
-  }
   
-}
+
 html, body {
   margin: 0;
   padding: 0;
