@@ -361,5 +361,14 @@ html, body {
     height: auto !important;
     overflow-y: visible !important;
   }
+    .Hangman-btns {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)) !important;
+    max-width: 100% !important;
+    gap: 4px !important;
+  }
+
+  .numpad {
+    display: contents !important; /* Merge number keys into same grid as alphabets */
+  }
 }
 
