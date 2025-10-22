@@ -1,22 +1,9 @@
 /* -------------------- BODY & WRAPPER -------------------- */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #0c0c13;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  overflow: auto;
-  padding: 0;
-}
+
+/* -------------------- BODY & WRAPPER -------------------- */
+
+
+
 
 .Hangman-wrapper {
   display: flex;
@@ -307,7 +294,7 @@ html, body {
   body {
     height: 100dvh;
     padding: 0.5rem;
-    overflow: auto;
+    overflow: scroll
   }
 
   .Hangman-wrapper {
@@ -354,21 +341,29 @@ html, body {
   html, body {
     height: auto !important;
     min-height: 100dvh;
-    overflow-y: auto !important;
+   overflow: scroll
   }
 
   .Hangman-wrapper {
     height: auto !important;
-    overflow-y: visible !important;
+  overflow: scroll
   }
-    .Hangman-btns {
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)) !important;
-    max-width: 100% !important;
-    gap: 4px !important;
-  }
-
-  .numpad {
-    display: contents !important; /* Merge number keys into same grid as alphabets */
-  }
+  
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0c0c13;
+  display: block;            /* ✅ changed from flex */
+  box-sizing: border-box;
+ overflow: scroll;
+}
+
 
