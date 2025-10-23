@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Hangman-SDC/static/css/main.cf14500f.chunk.css",
+    "main.css": "/Hangman-SDC/static/css/main.3672fa71.chunk.css",
     "main.js": "/Hangman-SDC/static/js/main.e9fe05f3.chunk.js",
     "main.js.map": "/Hangman-SDC/static/js/main.e9fe05f3.chunk.js.map",
     "runtime-main.js": "/Hangman-SDC/static/js/runtime-main.7dace3d2.js",
@@ -8,15 +8,15 @@
     "static/js/2.869be2d4.chunk.js": "/Hangman-SDC/static/js/2.869be2d4.chunk.js",
     "static/js/2.869be2d4.chunk.js.map": "/Hangman-SDC/static/js/2.869be2d4.chunk.js.map",
     "index.html": "/Hangman-SDC/index.html",
-    "precache-manifest.d8b82eb6e23c4e1da15874ef40b5a399.js": "/Hangman-SDC/precache-manifest.d8b82eb6e23c4e1da15874ef40b5a399.js",
+    "precache-manifest.56c499d3657a7325b7b019bfe0e921e5.js": "/Hangman-SDC/precache-manifest.56c499d3657a7325b7b019bfe0e921e5.js",
     "service-worker.js": "/Hangman-SDC/service-worker.js",
-    "static/css/main.cf14500f.chunk.css.map": "/Hangman-SDC/static/css/main.cf14500f.chunk.css.map",
+    "static/css/main.3672fa71.chunk.css.map": "/Hangman-SDC/static/css/main.3672fa71.chunk.css.map",
     "static/js/2.869be2d4.chunk.js.LICENSE.txt": "/Hangman-SDC/static/js/2.869be2d4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7dace3d2.js",
     "static/js/2.869be2d4.chunk.js",
-    "static/css/main.cf14500f.chunk.css",
+    "static/css/main.3672fa71.chunk.css",
     "static/js/main.e9fe05f3.chunk.js"
   ]
 }
