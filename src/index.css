@@ -28,7 +28,6 @@
   --wrong-key: #ff1100;
 }
 
-/* -------------------- HANGMAN LAYOUT -------------------- */
 .Hangman {
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +45,6 @@
   text-align: center;
 }
 
-/* Image */
 .Hangman img {
   width: 160px;
   height: 280px;
@@ -55,14 +53,12 @@
   box-shadow: 0 0 15px var(--main-color);
 }
 
-/* Question text */
 .Hangman-left p {
   font-size: 1rem;
   color: var(--main-color);
   margin-bottom: 0.5rem;
 }
 
-/* Info box (Lives, Time, Solved) */
 .info-box {
   display: flex;
   justify-content: center;
@@ -81,7 +77,6 @@
   text-align: center;
 }
 
-/* Word display */
 .Hangman-word {
   letter-spacing: 0.4em;
   margin: 0.4em 0;
@@ -90,7 +85,6 @@
   word-break: break-word;
 }
 
-/* -------------------- KEYS LAYOUT -------------------- */
 .Hangman-btns {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -134,7 +128,6 @@
   opacity: 0.8;
 }
 
-/* -------------------- BROKEN HEART ANIMATION -------------------- */
 .broken-heart img {
   animation: shake 0.6s ease-in-out infinite;
   border: 2px solid red;
@@ -149,7 +142,6 @@
   100% { transform: rotate(0deg); }
 }
 
-/* -------------------- POPUP CARDS -------------------- */
 .result-overlay {
   position: fixed;
   top: 0;
@@ -186,7 +178,6 @@
   color: #fff;
 }
 
-/* -------------------- ANIMATIONS -------------------- */
 @keyframes popUp {
   0% { transform: scale(0); opacity: 0; }
   60% { transform: scale(1.05); opacity: 1; }
@@ -198,7 +189,6 @@
   to { opacity: 1; }
 }
 
-/* -------------------- NUMPAD STYLES -------------------- */
 .numpad {
   grid-template-columns: repeat(5, 1fr);
   margin-top: 1rem;
@@ -210,7 +200,6 @@
   font-size: 1.3rem;
 }
 
-/* -------------------- HEADINGS -------------------- */
 .Hangman-heading {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -220,7 +209,6 @@
   text-align: center;
 }
 
-/* -------------------- SKIP BUTTON -------------------- */
 .skip-btn {
   display: inline-flex;
   justify-content: center;
@@ -251,7 +239,6 @@
   background: #444;
 }
 
-/* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 768px) {
   .Hangman-heading {
     font-size: 2rem;
@@ -289,7 +276,6 @@
   }
 }
 
-/* -------------------- MOBILE FIXES (360x640 to 414x896) -------------------- */
 @media (min-width: 360px) and (max-width: 414px) {
   body {
     height: 100dvh;
@@ -336,7 +322,6 @@
     min-width: 60px;
   }
 }
-/* -------------------- FIX: Enable Scrolling on Mobile -------------------- */
 @media (max-width: 768px) {
   html, body {
     height: auto !important;
@@ -361,8 +346,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #0c0c13;
-  display: block;            /* ✅ changed from flex */
+  display: block;          
   box-sizing: border-box;
 
 }
-
